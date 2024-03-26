@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+input[type="submit"] {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+

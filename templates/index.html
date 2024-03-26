@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cocktail Finder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#cocktailForm").submit(function(event){
+            event.preventDefault();
+            $.ajax({
+                url: '/find_cocktails',
+                type: 'post',
+                data: $(this).serialize(),
+                success: function(data) {
+                    $("#results").empty();
+                    $.each(data, function(index, cocktail) {
+                        $("#results").append('<li>' + cocktail + '</li>');
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <form id="cocktailForm">
+        <input type="text" name="cocktail_name" placeholder="Enter Cocktail Name">
+        <input type="submit" value="Find Similar Cocktails">
+    </form>
+    <ul id="results"></ul>
+</body>
+</html>
